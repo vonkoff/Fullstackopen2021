@@ -1,0 +1,29 @@
+title 0.6: New note
+
+#The page has already loaded so before this part 0.5 of sequence diagram
+#has already occurred
+
+actor A
+A->browser:
+note over A
+user creates a new note and submits it
+end note 
+
+note over browser:
+Event handler immediately calls the method e.preventDefault() 
+to prevent the default handling of form submit.
+end note
+browser->server:POST request https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over browser:
+Then the event handler creates a new note, 
+adds it to the notes list with the command notes.push(note), 
+rerenders the note list on the page and sends the new note to the server. 
+The javascript code executes this so that a url redirect is not necessary.
+end note
+server-->browser: application/json= {content: "new test part 0 spa note", date: "2020-09-01T00:17:25.239Z"}
+
+note over browser:
+The Content-Type header of the request tells the server 
+that the included data is represented in the JSON format.
+Without this header, the server would not know how to correctly parse the data.
+end note
