@@ -1,0 +1,8 @@
+# POST https://murmuring-brook-48428.herokuapp.com/api/persons HTTP/1.1
+POST http://localhost:3001/api/persons/61d24dd6b68e78ba0e8eaec1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Ivan Vu",
+    "number": "12"
+}
